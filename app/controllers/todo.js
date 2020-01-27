@@ -3,11 +3,14 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   actions: {
-    createTodo: function() {
+    createTodo: function () {
       var title = this.get('newTitle');
-      console.log('hit', title);
-      if(!title) { return false; }
-      if(!title.trim()) { return;  }
+      if (!title) {
+        return false;
+      }
+      if (!title.trim()) {
+        return;
+      }
 
       var todo = this.store.createRecord('todo', {
         title: title,
@@ -31,7 +34,7 @@ export default Ember.Controller.extend({
     return remaining == 1 ? 'item' : 'items';
   }),
   hascompleted: Ember.computed('completed', function () {
-     return this.get('completed');
+    return this.get('completed');
   }),
   completed: Ember.computed('model.@each.isCompleted', function () {
     return this.get('model').filterBy('isCompleted', true).get('length');
