@@ -6,11 +6,19 @@ const Router = Ember.Router.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
-  this.route('todo', {path: '/'}, function() {
-    this.route('active');
+Router.map(function () {
+  this.route('todo', {
+    path: '/'
+  }, function () {
+    this.route('active', function () {
+      this.route('comments', {
+        path: '/:active_id'
+      });
+    });
     this.route('completed');
   });
+
+
 });
 
 export default Router;

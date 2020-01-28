@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
 
       var todo = this.store.createRecord('todo', {
         title: title,
-        isCompleted: false
+        isCompleted: false,
       });
 
       this.set('newTitle', '');
