@@ -16,6 +16,9 @@ Router.map(function () {
       });
     });
     this.route('completed');
+    this.route('show', {
+      path: 'show/:todo_id'
+    });
   });
 
 

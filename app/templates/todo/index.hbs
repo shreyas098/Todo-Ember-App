@@ -6,11 +6,14 @@
     {{else}}
 
     {{input type='checkbox' class="toggle" checked=todo.isCompleted className="toggle"}}
+    {{#link-to "todo.show" todo.id class=todo.id}}
     <label {{action "editToDo" todo on= "doubleClick"}}>
       {{todo.title}}
     </label>
+    {{/link-to}}
     <button class="destroy" {{action "removetodo" todo}}></button>
     {{/if}}
   </li>
   {{/each}}
 </ul>
+{{outlet}}
